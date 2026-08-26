@@ -8,3 +8,5 @@ quantity:integer('quantity').notNull(),
 status:varchar('status',{length:50}).notNull().default('pending')
 
 });
+export type Order=typeof orders.$inferSelect;
+export type NewOrder=typeof orders.$inferInsert;
