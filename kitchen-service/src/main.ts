@@ -13,6 +13,7 @@ async function bootstrap() {
           }
           }
   });
-
+await app.listen()
+console.log("kitchen service is listening on kitchen_queue")
 }
 bootstrap();
