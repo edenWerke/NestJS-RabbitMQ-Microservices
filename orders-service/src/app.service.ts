@@ -3,11 +3,13 @@ import { ClientProxy } from '@nestjs/microservices';
 import { CreateOrderDto } from './app.controller';
 import { db } from './db/db';
 import { orders } from './db/schema';
-
+// Give me something
 @Injectable()
+// kitchenClient is the messenger carrying the order to the kitchen
 export class AppService {
   constructor(
     // "NestJS, give me the thing registered as KITCHEN_SERVICE."
+    // Give me something = inject and kitchen service is the destination
     @Inject('KITCHEN_SERVICE')
     private readonly kitchenClient: ClientProxy,
   ) {}
