@@ -24,14 +24,20 @@ export class AppService {
       .returning();
 
     console.log(`Order saved to DB: ${order.id}`);
-    // this.kitchenClient.emit{'order created',}
 
-    return order;
-    this.kitchenClient.emit('order_created',{
-orderId:order.id,
-customerName:order.customerName,
-item:order.item,
-quantity:order.quantity
-    })
+    // Send order-created event to the Kitchen Service
+    this.kitchenClient.emit('order_created', {
+      orderId: order.id,
+      customerName: order.customerName,
+      item: order.item,
+      quantity: order.quantity,
+    });
+
+    console.log('Event emitted to kitchen queue');
+
+    return {
+      success: true,
+      orderId: order.id,
+    };
   }
 }
