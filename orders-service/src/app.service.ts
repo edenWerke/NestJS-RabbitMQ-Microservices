@@ -27,5 +27,11 @@ export class AppService {
     // this.kitchenClient.emit{'order created',}
 
     return order;
+    this.kitchenClient.emit('order_created',{
+orderId:order.id,
+customerName:order.customerName,
+item:order.item,
+quantity:order.quantity
+    })
   }
 }
