@@ -1,18 +1,19 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller } from '@nestjs/common';
 import { EventPattern, Payload } from '@nestjs/microservices';
 
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-@EventPattern('order_created')
-async handleOrderCreated(@Payload( data:{}){
-       orderId: string,
-      customerName:string,
-      item: string,
-      quantity: number,
-}){
-  console.log('kitchen recived order: + order.id')
-}
-}
+  @EventPattern('order_created')
+  async handleOrderCreated(
+    @Payload()
+    data: {
+      orderId: string;
+      customerName: string;
+      item: string;
+      quantity: number;
+    },
+  ) {
+    console.log(`Kitchen received order: ${data.orderId}`);
+  }
