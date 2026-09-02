@@ -1,7 +1,6 @@
-
 import { Controller } from '@nestjs/common';
-import { EventPattern, Payload } from '@nestjs/microservices';
 import { AppService } from './app.service';
+import { EventPattern, Payload } from '@nestjs/microservices';
 
 @Controller()
 export class AppController {
@@ -17,8 +16,8 @@ export class AppController {
       quantity: number;
     },
   ) {
-    console.log(`Kitchen received order: ${data.orderId}`);
-    await this.appService.processOrder();
+    console.log('Kitchen received order: ' + data.orderId);
+
+    await this.appService.processOrder(data);
   }
 }
-
