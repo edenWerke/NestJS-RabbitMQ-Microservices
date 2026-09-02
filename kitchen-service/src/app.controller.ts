@@ -3,8 +3,6 @@ import { EventPattern, Payload } from '@nestjs/microservices';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
-
   @EventPattern('order_created')
   async handleOrderCreated(
     @Payload()
@@ -17,3 +15,4 @@ export class AppController {
   ) {
     console.log(`Kitchen received order: ${data.orderId}`);
   }
+}
