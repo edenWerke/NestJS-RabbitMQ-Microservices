@@ -1,3 +1,4 @@
+// The AppController receives an order_created event from the Order Service and passes the order data to AppService for processing.
 import { Controller } from '@nestjs/common';
 import { AppService } from './app.service';
 import { EventPattern, Payload } from '@nestjs/microservices';

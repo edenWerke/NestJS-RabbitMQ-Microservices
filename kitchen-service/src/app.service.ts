@@ -2,7 +2,7 @@ import { Inject, Injectable } from '@nestjs/common';
 import { ClientProxy } from '@nestjs/microservices';
 import { db } from './db/db';
 import { tickets } from './db/schema';
-
+// The AppService receives the order, saves it, waits as if the food is being prepared, and tells the rider: “The order is ready.”
 @Injectable()
 export class AppService {
   constructor(
