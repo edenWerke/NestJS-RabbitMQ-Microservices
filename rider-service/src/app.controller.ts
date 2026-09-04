@@ -5,7 +5,7 @@ import { EventPattern, Payload } from '@nestjs/microservices';
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
-
+// means listen
   @EventPattern('order_ready')
   async handleOrderReady(
     @Payload()
